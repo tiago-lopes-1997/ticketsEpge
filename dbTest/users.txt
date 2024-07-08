@@ -1,0 +1,5 @@
+admin#admin#admin
+user#user#user
+tec#tec#tec
+123#123#tec
+abc#abc#user

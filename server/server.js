@@ -63,6 +63,8 @@ app.post('/api/sites', async (req, res) => {
 });
 //#endregion
 
+//#region Users API
+
 //Get all users and roles by admin
 app.get('/api/users', async (req, res) => {
     try {
@@ -73,6 +75,31 @@ app.get('/api/users', async (req, res) => {
         res.status(500).send('Internal server error');    
     }
 });
+
+app.put('/api/users/:id', async (req, res) => {
+    const userId = req.params.id;
+    const userUpdates = req.body;
+
+    try {
+        await sqlHelper.updateUser(userId, userUpdates);
+        res.json({ message: 'User updated successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update user' });
+    }
+});
+
+app.delete('/api/users/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        await sqlHelper.deleteUser(userId);
+        res.json({ message: 'User deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to delete user' });
+    }
+});
+
+//#endregion
 
 //Change user Role in DB
 app.post("/api/logout", (req, res) => {

@@ -85,7 +85,7 @@ const AdminManageUsers = () => {
                                 >
                                     <option value="admin">Admin</option>
                                     <option value="user">User</option>
-                                    <option value="guest">Guest</option>
+                                    <option value="tec">Tecnico</option>
                                 </select>
                             ) : (
                                 user.usertype
@@ -93,12 +93,12 @@ const AdminManageUsers = () => {
                             <td>{editingUserId === user.id ? (
                                 <input
                                     type="text"
-                                    name="function"
-                                    value={userUpdates.function}
+                                    name="profession"
+                                    value={userUpdates.profession}
                                     onChange={handleInputChange}
                                 />
                             ) : (
-                                user.function
+                                user.userprofession
                             )}</td>
                             <td>{editingUserId === user.id ? (
                                 <input

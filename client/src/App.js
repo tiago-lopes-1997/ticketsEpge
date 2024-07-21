@@ -9,7 +9,7 @@ function App() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/api/login", { username, password });
+            const response = await axios.post("api/login", { username, password });
             const userType = response.data.userType;
 
             if (userType === 'user') {
